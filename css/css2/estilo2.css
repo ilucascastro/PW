@@ -1,0 +1,13 @@
+body{
+    background-image: url('imagem.png');
+    background-position: 30px -300px;
+    background-size: cover;
+}
+.container {
+    padding: 12px 12px 12px 12px;
+    border: 10px solid rgb(187, 105, 28);
+    border-radius: 30px;
+    background-color: rgba(5, 6, 7, 0.658);
+    color: aliceblue;
+    margin: 60px 800px 0px 40px;
+}

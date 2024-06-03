@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Esconde o overflow da página */
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    background-color: #333;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    pointer-events: none; /* Impede que o cursor interfira com outros elementos */
+}
+
+#container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
