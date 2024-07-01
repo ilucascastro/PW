@@ -1,19 +1,26 @@
 (function () {
   let FPS = 10;
   const SIZE = 40;
-  let board, snake, food, score, gameInterval, paused = false, running = false;
+  let board, snake, food, score, gameInterval, paused = false, running = false, frameCount = 0;
 
+  alert('Snake Game! Tecla de P pausa o game; Tecla S starta um novo game. Ok?')
   function init() {
     board = new Board(SIZE);
     snake = new Snake([[4, 4], [4, 5], [4, 6]]);
     score = 0;
+    frameCount = 0;
+    FPS = 10;
     updateScore();
     spawnFood();
+    clearInterval(gameInterval);
     gameInterval = setInterval(run, 1000 / FPS);
   }
 
   function startGame() {
     if (!running) {
+      frameCount = 0;
+      FPS = 10;
+      clearInterval(gameInterval);
       running = true;
       init();
     }
@@ -50,7 +57,7 @@
         break;
       case "S":
       case "s":
-        resetGame();
+          resetGame();
         break;
       default:
         break;
@@ -176,6 +183,12 @@
   function run() {
     if (!paused) {
       snake.walk();
+      frameCount++;
+      if (frameCount % 60 === 0) {
+        FPS++;
+        clearInterval(gameInterval);
+        gameInterval = setInterval(run, 1000 / FPS);
+      }
     }
   }
 
