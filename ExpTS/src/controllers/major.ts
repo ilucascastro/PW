@@ -18,7 +18,7 @@ const create = async (req: Request, res: Response)=>{
     else {
         try{
             await createMajor(req.body);
-            res.send("criado");
+            res.redirect("/major");
         } catch(err){
             console.log(err);
             res.status(500).send(err);

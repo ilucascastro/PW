@@ -2,8 +2,16 @@ import { Router } from "express"
 
 import mainController from "../controllers/main"
 import majorControlller from "../controllers/major"
+import authController from "../controllers/auth"
 
 const router = Router()
+
+//auth controller
+router.get("/auth/signup", authController.signup);
+router.post("/auth/signup", authController.signup);
+router.get("/auth/login", authController.login);
+router.post("/auth/login", authController.login);
+router.post("/auth/logout", authController.logout);
 
 //major controller
 router.get("/major", majorControlller.index);
@@ -16,6 +24,7 @@ router.post("/major/remove", majorControlller.remove);
 
 
 // main controller
+router.get("/test-cookie", mainController.testCookie)
 router.get("/hb1", mainController.hb1);
 router.get("/hb2", mainController.hb2);
 router.get("/hb3", mainController.hb3);

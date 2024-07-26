@@ -4,6 +4,17 @@ const hb1 = (req: Request, res: Response) =>{
     res.render("main/hb1", {mensagem: "Alguma mensagem"});
 };
 
+const testCookie = (req: Request, res: Response) => {
+  //req.cookies
+  //res.cookies
+  if(!("test" in req.cookies)){
+    res.cookie("test", "1");
+    res.send("voce ainda nao tinha o cookie. criando...")
+  } else{
+    res.send("voce ja tinha o cookie")
+  }
+}
+
 const hb2 = (req: Request, res: Response) => {
     res.render("main/hb2", {
       vencedorCaprichoso: false,
@@ -38,4 +49,4 @@ const about = (req: Request, res: Response) => {
     res.send("Página about");
 }
 
-export default {hb1, hb2, hb3, hb4, bemvindo, about};
+export default {hb1, hb2, hb3, hb4, bemvindo, about, testCookie};
