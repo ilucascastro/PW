@@ -1,13 +1,12 @@
 import { Request, Response } from "express";
 
 const hb1 = (req: Request, res: Response) =>{
-    res.render("main/hb1", {mensagem: "Alguma mensagem", layout: false});
+    res.render("main/hb1", {mensagem: "Alguma mensagem"});
 };
 
 const hb2 = (req: Request, res: Response) => {
     res.render("main/hb2", {
       vencedorCaprichoso: false,
-      layout: false,
     });
 };
 
@@ -18,7 +17,7 @@ const hb3 = (req: Request, res: Response) =>{
       {name: "Elaine Harada", room: 345},
       {name: "Horácio Fernandes", room: 148},
     ];
-    res.render("main/hb3", {profs, layout: false});
+    res.render("main/hb3", {profs});
 }
 
 const hb4 = (req: Request, res: Response) =>{
@@ -28,7 +27,7 @@ const hb4 = (req: Request, res: Response) =>{
       {name: "Elaine Harada", room: 345},
       {name: "Horácio Fernandes", room: 148},
     ];
-    res.render("main/hb4", {profs, layout: false});
+    res.render("main/hb4", {profs});
 }
 
 const bemvindo = (req: Request, res: Response) => {
