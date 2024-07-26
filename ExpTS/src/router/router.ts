@@ -23,6 +23,16 @@ router.get("/hb3", (req, res) =>{
   res.render("hb3", {profs, layout: false});
 });
 
+router.get("/hb4", (req, res) =>{
+  const profs = [
+    {name: "David Fernandes", room: 321},
+    {name: "Altigran Soares", room: 224},
+    {name: "Elaine Harada", room: 345},
+    {name: "Horácio Fernandes", room: 148},
+  ];
+  res.render("hb4", {profs, layout: false});
+});
+
 router.get("/bem-vindo/:nome", (req, res) => {
     res.send(`Seja bem-vindo(a) ${req.params.nome}`)
 });
