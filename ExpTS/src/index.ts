@@ -16,6 +16,7 @@ app.set("views", `${__dirname}/views`);
 app.use(logger("combined")); // based on requirement
 app.use("/img", express.static(`${__dirname}/../public/img`))
 app.locals.valor = "10"
+app.use(express.urlencoded({ extended: false}))
 app.use(router);
 
 
