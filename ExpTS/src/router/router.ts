@@ -1,48 +1,14 @@
 import { Router } from "express"
 
+import mainController from "../controllers/main"
+
 const router = Router()
 
-router.get("/hb1", (req, res) =>{
-  res.render("hb1", {mensagem: "Alguma mensagem", layout: false});
-})
-
-router.get("/hb2", (req, res) => {
-  res.render("hb2", {
-    vencedorCaprichoso: false,
-    layout: false,
-  })
-})
-
-router.get("/hb3", (req, res) =>{
-  const profs = [
-    {name: "David Fernandes", room: 321},
-    {name: "Altigran Soares", room: 224},
-    {name: "Elaine Harada", room: 345},
-    {name: "Horácio Fernandes", room: 148},
-  ];
-  res.render("hb3", {profs, layout: false});
-});
-
-router.get("/hb4", (req, res) =>{
-  const profs = [
-    {name: "David Fernandes", room: 321},
-    {name: "Altigran Soares", room: 224},
-    {name: "Elaine Harada", room: 345},
-    {name: "Horácio Fernandes", room: 148},
-  ];
-  res.render("hb4", {profs, layout: false});
-});
-
-router.get("/bem-vindo/:nome", (req, res) => {
-    res.send(`Seja bem-vindo(a) ${req.params.nome}`)
-});
-
-router.get("/", (req, res) => {
-  res.send("Hello world!");
-});
-
-router.get("/about", (req, res) => {
-    res.send("Página about");
-});
+router.get("/hb1", mainController.hb1);
+router.get("/hb2", mainController.hb2);
+router.get("/hb3", mainController.hb3);
+router.get("/hb4", mainController.hb4);
+router.get("/bem-vindo/:nome", mainController.bemvindo);
+router.get("/about", mainController.about);
 
 export default router;
