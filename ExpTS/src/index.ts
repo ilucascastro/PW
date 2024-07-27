@@ -8,6 +8,12 @@ import {v4} from "uuid";
 import router from "./router/router"
 import logger from "./middleware/logger";
 
+declare module "express-session" {
+  interface SessionData{
+    uid: string;
+  }
+}
+
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3333;

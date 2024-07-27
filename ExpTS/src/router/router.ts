@@ -3,6 +3,7 @@ import { Router } from "express"
 import mainController from "../controllers/main"
 import majorControlller from "../controllers/major"
 import authController from "../controllers/auth"
+import { checkAuth } from "../middleware/checkAuth"
 
 const router = Router()
 
@@ -11,11 +12,11 @@ router.get("/auth/signup", authController.signup);
 router.post("/auth/signup", authController.signup);
 router.get("/auth/login", authController.login);
 router.post("/auth/login", authController.login);
-router.post("/auth/logout", authController.logout);
+router.get("/auth/logout", authController.logout);
 
 //major controller
 router.get("/major", majorControlller.index);
-router.get("/major/create", majorControlller.create);
+router.get("/major/create", checkAuth, majorControlller.create);
 router.post("/major/create", majorControlller.create);
 router.get("/major/read/:id", majorControlller.read);
 router.get("/major/update", majorControlller.update);
